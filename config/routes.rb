@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'users/login_form'
+  post "login" => "users#login"
+
   post "users/create" => "users#create"
+
   get 'users/show'
   get 'users/new' 
   get 'users/index'
   get "users/:id" => "users#show"
+  
   get 'home/top'
   get 'home/login'
   get 'home/signup'
