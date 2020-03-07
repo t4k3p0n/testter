@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Testter</title>
+
+    <%= stylesheet_link_tag "top/Dark-NavBar", :media => "all" %>
+    <%= stylesheet_link_tag "top/Footer-Basic", :media => "all" %>
+    <%= stylesheet_link_tag "top/Features-Clean", :media => "all" %>
+    <%= stylesheet_link_tag "top/Highlight-Phone", :media => "all" %>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top navigation-clean-button" style="height: 70px;background-color: rgb(4,143,131);color: #ffffff;">
+            <div class="container-fluid"><a class="navbar-brand" href="/"><i class="fas fa-cube"></i>&nbsp;Testter</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon" style="color: rgb(255,255,255);"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item" role="presentation"></li>
+                        <li class="nav-item" role="presentation" style="background-color: rgb(4,143,131);"><a class="nav-link" style="color:#ffffff;" href="/home/signup"><i class="fas fa-user-plus"></i>&nbsp;新規登録</a></li>
+                        <li class="nav-item" role="presentation" style="background-color: rgb(4,143,131);"><a class="nav-link" style="color:#ffffff;" href="/home/login"><i class="fas fa-sign-in-alt"></i>&nbsp;ログイン</a></li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="highlight-phone" style="height: 327px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="intro">
+                        <h2>Testter</h2>
+                        <p>ーTestterを使って面倒なテストを効率的に楽しくー<br></p><a class="btn btn-primary" role="button" href="#" style="background-color: rgb(4,143,131);">早速試して見る</a></div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="d-none d-md-block iphone-mockup"><%= image_tag "iphone.svg", alt: "Rails icon", id: "assets", class: "device" %>
+                        <div class="screen"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="features-clean">
+        <div class="container">
+            <div class="intro" style="color: rgb(48,50,51);">
+                <h2 class="text-center" style="color: rgb(92,93,94);">機能</h2>
+            </div>
+            <div class="row features">
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-comments icon" style="color: rgb(118,118,118);"></i>
+                    <h3 class="name" style="color: rgb(77,77,77);">実行結果の記録</h3>
+                    <p class="description" style="color: rgb(77,77,77);">テスト毎にURLが割り当てられるため、URLを取得するだけでテストの結果を共有できます。<br><br></p>
+                </div>
+                <div class="col-sm-6 col-lg-4 offset-xl-0 item"><i class="fa fa-users icon" style="color: rgb(118,118,118);"></i>
+                    <h3 class="name" style="color: rgb(77,77,77);">チームでの管理可能</h3>
+                    <p class="description" style="color: rgb(77,77,77);">クローズドな空間を作成し、そこにメンバーを招待して、チームでのテスト管理が、できます。<br><br></p>
+                </div>
+                <div class="col-sm-6 col-lg-4 item"><i class="fa fa-list-alt icon" style="color: rgb(118,118,118);"></i>
+                    <h3 class="name" style="color: rgb(77,77,77);">テストの管理</h3>
+                    <p class="description" style="color: rgb(77,77,77);">ケース作成、テスト実行、進捗管理など、基本的な機能は全て揃えています。<br><br></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="https://github.com/t4k3p0n"><i class="fab fa-github"></i></i></a><a href="https://twitter.com/takepon_it"><i class="fab fa-twitter"></i></a></div>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="#">Home</a></li>
+                <li class="list-inline-item"><a href="#">Services</a></li>
+                <li class="list-inline-item"><a href="#">About</a></li>
+                <li class="list-inline-item"><a href="#">Terms</a></li>
+                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Copyright takepon © 2020</p>
+        </footer>
+    </div>
+    <div></div>
+    <%= javascript_include_tag 'jquery.min.js' %>
+    <%= javascript_include_tag 'Features.js' %>
+    <%= javascript_include_tag 'MUSA_form-wizard.js' %>
+    <%= javascript_include_tag 'bootstrap.min.js' %>
+    <%= javascript_include_tag 'script.min.js' %>
+</body>
+
+</html>
