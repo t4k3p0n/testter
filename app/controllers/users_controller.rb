@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
-  
+
   def index
     @users = User.all
   end
@@ -34,8 +34,8 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user = User.find_by(email: params[:email], password: params[:password])
-    if @user
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/users/index")
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def guest
-    @user = User.find_by(email: 'poyon1104@yahoo.co.jp', password: 'hogehoge')
+    @user = User.find_by(email: 'poyon1104@yahoo.co.jp', password_digest: '$2a$12$EXt/33mSzew11vxVPE.Hlu1mWqxqzyOBLbyKJZTmA0FzuwRaEMjZ.')
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/users/index")
