@@ -44,10 +44,8 @@
         <% end %>
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email" value="<%= @email %>"></div>
             <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password" value="<%= @password %>"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">login</button></div><button class="btn btn-primary btn-block" type="submit">guest&nbsp;</button>
-            <%= link_to 'ゲストログイン（閲覧用）', guest_path, method: :post %>
-            
-            <a class="forgot" href="#">パスワード等の変更</a>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">ログイン</button></div>
+            <%= link_to 'ゲストログイン', guest_path, method: :post ,class: "btn btn-primary btn-block"%>
 
             <% end %>
     </div>
