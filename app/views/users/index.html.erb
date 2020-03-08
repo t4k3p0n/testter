@@ -4,17 +4,19 @@
     <% @users.each do |user| %>
       <div class="users-index-item">
         <div class="user-right">
-          <!-- 以下のユーザー名を、ユーザー詳細ページへのリンクに書き換えてください -->
           <%= link_to(user.name, "/users/#{user.id}") %>
         </div>
       </div>
     <% end %>
   </div>
 
+  <% current_user = User.find_by(id: session[:user_id]) %>
+  <%= link_to(current_user.name, "/users/#{current_user.id}") %>
+
   <% if flash[:notice] %>
   <div class="flash">
     <%= flash[:notice] %>
   </div>
 <% end %>
-<%= link_to("ログアウト", "/logout", {method: :post}) %>
+  <%= link_to("ログアウト", "/logout", {method: :post}) %>
 </div>
