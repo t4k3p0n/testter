@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/login_form'
   post "login" => "users#login"
-
+  post "logout" => "users#logout"
   post "users/create" => "users#create"
 
   get 'users/show'
