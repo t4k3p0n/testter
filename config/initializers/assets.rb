@@ -34,3 +34,10 @@ Rails.application.config.assets.precompile += %w( users/easing.js )
 Rails.application.config.assets.precompile += %w( users/chart.min.js )
 Rails.application.config.assets.precompile += %w( users/bs-init.js )
 Rails.application.config.assets.precompile += %w( users/bootstrap.min.css )
+Rails.application.config.assets.configure do |env|
+    env.cache = Sprockets::Cache::FileStore.new(
+      ENV.fetch("SPROCKETS_CACHE", "#{env.root}/tmp/cache/assets"),
+      Rails.application.config.assets.cache_limit,
+      env.logger
+    )
+  end
