@@ -135,6 +135,7 @@
                                                     </div>
                                                     <div class="col">
                                                         <div class="form-group"><label for="email"><strong>メールアドレス</strong><br></label><input class="form-control" type="email" placeholder="メールアドレス" name="email" value="<%= @user.email %>"></div>
+                                                        <div class="form-group"><label for="email"><strong>パスワード</strong><br></label><input class="form-control"  placeholder="パスワード" name="email" value="<%= @user.password_digest %>"></div>
                                                     </div>
                                                 </div>
                                                 <% if @user.id == @current_user.id %>

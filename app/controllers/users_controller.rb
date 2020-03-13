@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def guest
-    @user = User.find_by(email: 'poyon1104@yahoo.co.jp', password: 'hogehoge')
+    @user = User.find_by(email: 'poyon1104@yahoo.co.jp', password_digest: '$2a$12$EXt/33mSzew11vxVPE.Hlu1mWqxqzyOBLbyKJZTmA0FzuwRaEMjZ.')
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to("/users/index")
