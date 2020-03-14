@@ -2,30 +2,44 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login, :top]}
+  before_action :ensure_correct_user,{only: [:destroy]}
 
   def top
   end
 
   def index
     @users = User.all
-    @posts = Post.all
+    @posts = @current_user.posts.all
   end
   
+ 
+
   def show
     @user = User.find_by(id: params[:id])
+
   end
   
   def new
     @user = User.new
   end
 
+  def posts
+    return Post.where(user_id: self.id)
+  end
+ 
+
   def tasks
-    @post = Post.new(content: params[:content])
+    @post = Post.new(content: params[:content], user_id: @current_user.id)
     @post.save
     redirect_to("/users/index")
   end
 
-  #アカウント登録処理
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to("/users/index")
+  end
+
   def create 
     @user = User.new(
       name: params[:name],
@@ -71,4 +85,11 @@ class UsersController < ApplicationController
     redirect_to("/users/login_form")
   end
 
+def ensure_correct_user
+  @post = Post.find_by(id: params[:id])
+  if @post.user_id != @current_user.id
+  flash[:notice] = "権限がありません"
+  redirect_to("/posts/index")
+end
+end
 end

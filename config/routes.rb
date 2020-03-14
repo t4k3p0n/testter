@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "logout" => "users#logout"
   post "users/create" => "users#create"
   post "users/tasks" => "users#tasks"
+  post "users/:id/destroy" => "users#destroy"
   get 'users/show'
   get 'users/new' 
   get 'users/index'
