@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @posts = Post.all
   end
   
   def show
@@ -16,6 +17,12 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+  end
+
+  def tasks
+    @post = Post.new(content: params[:content])
+    @post.save
+    redirect_to("/users/index")
   end
 
   #アカウント登録処理

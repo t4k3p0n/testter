@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "guest" , to: "users#guest"
   post "logout" => "users#logout"
   post "users/create" => "users#create"
-
+  post "users/tasks" => "users#tasks"
   get 'users/show'
   get 'users/new' 
   get 'users/index'
