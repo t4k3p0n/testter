@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @posts = @current_user.posts.all
+    @status = ['todo', 'doing', 'done']
   end
   
  
@@ -26,10 +27,16 @@ class UsersController < ApplicationController
   def posts
     return Post.where(user_id: self.id)
   end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    @post.update(status:"完了")
+    redirect_to("/users/index")
+  end
  
 
   def tasks
-    @post = Post.new(content: params[:content], user_id: @current_user.id)
+    @post = Post.new(content: params[:content], user_id: @current_user.id ,status:"進行中")
     @post.save
     redirect_to("/users/index")
   end

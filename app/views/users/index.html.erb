@@ -219,12 +219,17 @@
                                             <li class="list-group-item">
                                                 <div class="row align-items-center no-gutters">
                                                     <div class="col mr-2">
-                                                        <h6 class="mb-0"> <%= link_to(post.content, "/users/#{post.user_id}") %></h6><span class="text-xs"><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></span>
+                                                        <h6 class="mb-0"><%= post.status %></h6><h5 class="mb-0"><%= post.content%></h5><span class="text-xs"><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></span>
                                                         </div>   
                                                         <div class="col-auto">
-    
-                                                        <%= link_to("編集", "/users/#{post.id}/destroy",method: "post",class:'btn btn-success') %>
-                                                        <%= link_to("削除", "/users/#{post.id}/destroy",method: "post",class:'btn btn-danger') %>
+                                                        <% if post.status == "進行中" %>
+                                                        <%= link_to  "/users/#{post.id}/update",method: "post",class:'btn btn-success rounded-circle' do%>
+                                                        <i class="fas fa-check"></i>
+                                                        <% end %>
+                                                        <% end %>
+                                                        <%= link_to  "/users/#{post.id}/destroy",method: "post",class:'btn btn-danger rounded-circle' do %>
+                                                        <i class="fas fa-trash-alt"></i>
+                                                        <% end %>
                                                    
    
                                                     </div>   
