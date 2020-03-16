@@ -10,14 +10,14 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @posts = @current_user.posts.all
-    @status = ['todo', 'doing', 'done']
+
   end
   
  
 
   def show
     @user = User.find_by(id: params[:id])
-
+    @posts = @user.posts.all
   end
   
   def new
@@ -33,12 +33,27 @@ class UsersController < ApplicationController
     @post.update(status:"完了")
     redirect_to("/users/index")
   end
+
+def photoch
+@user = User.find_by(id: params[:id])
+if params[:image]
+    @user.image_name = "#{@user.id}.jpg"
+    image = params[:image]
+    File.binwrite("public/user_images/#{@user.image_name}", image.read)
+    @user.save!
+    redirect_to("/users/#{@user.id}")
+  end
+end
  
 def change
   @user = User.find_by(id: params[:id])
+  @posts = @user.posts.all
   @user.name = params[:name1]
   @user.email = params[:email2]
   @user.profile = params[:prf]
+
+  
+
   if @user.save
     redirect_to("/users/#{@user.id}")
   else

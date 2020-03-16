@@ -133,8 +133,14 @@
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card mb-3">
-                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" width="160" height="160" src="<%= "/user_images/#{@user.image_name}" %>">
-                    <div class="mb-3"><input class="btn btn-primary btn-sm" type="button" value="プロフィール画像の変更" style="background-color: rgb(4,143,131);"></div>
+            <%= form_tag("/users/#{@user.id}/photoch", {multipart: true}) do %>
+                <div class="card-body text-center shadow">
+                <img class="rounded-circle mb-3 mt-4" width="160" height="160" src="<%= "/user_images/#{@user.image_name}" %>">
+                <% if @user.id == @current_user.id %>
+                    <div class="mb-3"> <input name="image" type="file"></div>
+                    <input class="btn btn-primary btn-sm" type="submit" value="保存" style="background-color: rgb(4,143,131);">
+                    <% end %>
+            <% end %>
                 </div>
             </div>
             <div class="card shadow mb-4">
@@ -220,8 +226,31 @@
                         </div>
                     </div>
                    
+                </div>
+                <div class="card shadow mb-3">
+                <div class="card-header py-3">
+                    <div class="card shadow mb-3">
+                        <div class="card-header py-3">
+                            <h6 class="font-weight-bold m-0"style="color: rgb(4,143,131);"><%= @user.name %>さんのタスク</h6>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <% @posts.each do |post| %>
+                            <li class="list-group-item">
+                                <div class="row align-items-center no-gutters">
+                                    <div class="col mr-2">
+                                        <h6 class="mb-0"><%= post.status %></h6><h5 class="mb-0"><%= post.content%></h5><span class="text-xs"><%= post.updated_at.strftime("%Y-%m-%d %H:%M") %></span>
+                                        </div>   
+                                        <div class="col-auto">
+                                    </div>   
+                                </div>
+                            </li>
+                            <% end %>
+                        </ul>
                     </div>
                 </div>
+            </div>
+            </div>
+</div>
             </div>
         </div>
     </div>
