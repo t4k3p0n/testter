@@ -34,7 +34,16 @@ class UsersController < ApplicationController
     redirect_to("/users/index")
   end
  
-
+def change
+  @user = User.find_by(id: params[:id])
+  @user.name = params[:name1]
+  @user.email = params[:email2]
+  if @user.save
+    redirect_to("/users/#{@user.id}")
+  else
+    render("users/show")
+  end
+end
   def tasks
     @post = Post.new(content: params[:content], user_id: @current_user.id ,status:"進行中")
     @post.save
@@ -58,6 +67,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/users/index")
     else
+      @error_message = "メールアドレス、名前、パスワードのどれかが入力できていません"
       render("users/new")
     end
   end

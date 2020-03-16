@@ -18,117 +18,116 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>ダッシュボード</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/<%= current_user.id %>"><i class="fas fa-user "></i><span>プロフィール</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="table.html"><i class="fas fa-bell"></i><span>通知</span><span class="badge badge-danger badge-counter">7</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"><i class="fas fa-envelope-open-text"></i><span>メッセージ</span><span class="badge badge-danger badge-counter">3+</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>ダッシュボード</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/<%= current_user.id %>"><i class="fas fa-user"></i><span>プロフィール</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="table.html"><i class="fas fa-project-diagram"></i><span>プロジェクト</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/logout" data-method="post"> <i class="fas fa-sign-out-alt "></i><span>ログアウト</span></a></li>
                 </ul>
                 
             </div>
         </nav>
         <div class="d-flex flex-column" id="content-wrapper">
-        <div id="content">
-        <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-        <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button" style="color: rgb(9,174,135);"><i class="fas fa-bars"></i></button>
-            <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" /><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button>
-                    <div class="input-group-append"></div>
-                </div>
-            </form>
-            <ul class="nav navbar-nav flex-nowrap ml-auto">
-                <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
-                    <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
-                        <form class="form-inline mr-auto navbar-search w-100">
-                            <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" />
-                                <div class="input-group-append"><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button></div>
-                            </div>
-                        </form>
+            <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+            <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button" style="color: rgb(9,174,135);"><i class="fas fa-bars"></i></button>
+                <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" /><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button>
+                        <div class="input-group-append"></div>
                     </div>
-                </li>
-                <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                    <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                            role="menu">
-                            <h6 class="dropdown-header">alerts center</h6>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="mr-3">
-                                    <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
+                </form>
+                <ul class="nav navbar-nav flex-nowrap ml-auto">
+                    <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto navbar-search w-100">
+                                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" />
+                                    <div class="input-group-append"><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button></div>
                                 </div>
-                                <div><span class="small text-gray-500">December 12, 2019</span>
-                                    <p>A new monthly report is ready to download!</p>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                role="menu">
+                                <h6 class="dropdown-header" style="background-color: rgb(4,143,131);">通知センター</h6>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                        <p>プロジェクトにて課題が残っています！</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                    <p>プロジェクトにて課題が残っています！</p>
                                 </div>
-                            </a>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="mr-3">
-                                    <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                    <p>プロジェクトにて課題が残っています！</p>
                                 </div>
-                                <div><span class="small text-gray-500">December 7, 2019</span>
-                                    <p>$290.29 has been deposited into your account!</p>
-                                </div>
-                            </a>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="mr-3">
-                                    <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
-                                </div>
-                                <div><span class="small text-gray-500">December 2, 2019</span>
-                                    <p>Spending Alert: We&#39;ve noticed unusually high spending for your account.</p>
-                                </div>
-                            </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
-                    </div>
-                </li>
-                <li class="nav-item dropdown no-arrow mx-1" role="presentation">
-                    <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
-                            role="menu">
-                            <h6 class="dropdown-header">alerts center</h6>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
-                                    <div class="bg-success status-indicator"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate"><span>Hi there! I am wondering if you can help me with a problem I&#39;ve been having.</span></div>
-                                    <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
-                                </div>
-                            </a>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
-                                    <div class="status-indicator"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate"><span>I have the photos that you ordered last month!</span></div>
-                                    <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-                                </div>
-                            </a>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
-                                    <div class="bg-warning status-indicator"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate"><span>Last month&#39;s report looks great, I am very happy with the progress so far, keep up the good work!</span></div>
-                                    <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
-                                </div>
-                            </a>
-                            <a class="d-flex align-items-center dropdown-item" href="#">
-                                <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
-                                    <div class="bg-success status-indicator"></div>
-                                </div>
-                                <div class="font-weight-bold">
-                                    <div class="text-truncate"><span>Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren&#39;t good...</span></div>
-                                    <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
-                                </div>
-                            </a><a class="text-center dropdown-item small text-gray-500" href="#">Show All Alerts</a></div>
-                    </div>
-                    <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
-                </li>
-                <div class="d-none d-sm-block topbar-divider"></div>
-                <li class="nav-item dropdown no-arrow" role="presentation">
-                <div class="nav-item dropdown no-arrow"><a class="nav-link" href="/users/<%= current_user.id %>"><%= current_user.name %></a>
-        </div>
-        </li>
-        </ul>
-        </div>
-    </nav>
+                                </a></div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                role="menu">
+                                <h6 class="dropdown-header"style="background-color: rgb(4,143,131);">最近のメッセージ</h6>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-success status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate"><span>こんにちは</span></div>
+                                        <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-warning status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-success status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
+                    </li>
+                    <div class="d-none d-sm-block topbar-divider"></div>
+                    <li class="nav-item dropdown no-arrow" role="presentation">
+                    <div class="nav-item dropdown no-arrow"><a class="nav-link" href="/users/<%= current_user.id %>"><%= current_user.name %></a>
+            </div>
+            </li>
+            </ul>
+            </div>
+        </nav>
                             <div class="row">
                                 <div class="col">
                                     <div class="card shadow mb-3">
@@ -136,21 +135,21 @@
                                             <p class=" m-0 font-weight-bold" style="color: rgb(9,174,135);">ユーザー情報</p>
                                         </div>
                                         <div class="card-body">
-                                            <form>
+                                        <%= form_tag("/users/#{@user.id}/change", {multipart: true}) do %>
                                                 <div class="form-row">
+                                                
                                                     <div class="col">
-                                                        <div class="form-group"><label for="username"><strong>ユーザーネーム</strong><br></label><input class="form-control" type="text" placeholder="ユーザーネーム" name="username" value="<%= @user.name %>"></div>
+                                                        <div class="form-group"><label for="username"><strong>ユーザーネーム</strong><br></label><input class="form-control" type="text" placeholder="ユーザーネーム" name="name1" value="<%= @user.name %>"></div>
                                                     </div>
                                                     <div class="col">
-                                                        <div class="form-group"><label for="email"><strong>メールアドレス</strong><br></label><input class="form-control" type="email" placeholder="メールアドレス" name="email" value="<%= @user.email %>"></div>
+                                                        <div class="form-group"><label for="email"><strong>メールアドレス</strong><br></label><input class="form-control" type="email" placeholder="メールアドレス" name="email2" value="<%= @user.email %>"></div>
                                                         
                                                     </div>
                                                 </div>
                                                 <% if @user.id == @current_user.id %>
-                                                <div class="form-group"><label for="email"><strong>パスワード</strong><br></label><input class="form-control"  placeholder="パスワード" name="email" value="<%= @user.password_digest %>"></div>
-                                                <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="background-color: rgb(4,143,131);">変更を保存する</button></div>
+                                                <div class="form-group"><input class="btn btn-primary btn-sm" type="submit" style="background-color: rgb(4,143,131);">変更を保存する</button></div>
                                                 <% end %>
-                                            </form>
+                                            <% end %>
                                         </div>
                                     </div>
                                 </div>

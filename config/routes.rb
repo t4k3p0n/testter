@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post "users/tasks" => "users#tasks"
   post "users/:id/destroy" => "users#destroy"
   post "users/:id/update" => "users#update"
+  post "users/:id/change" => "users#change"
   get 'users/show'
   get 'users/new' 
   get 'users/index'
