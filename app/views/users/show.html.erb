@@ -18,8 +18,8 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>ダッシュボード</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/<%= current_user.id %>"><i class="fas fa-user"></i><span>プロフィール</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>ダッシュボード</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/<%= current_user.id %>"><i class="fas fa-user"></i><span>プロフィール</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="table.html"><i class="fas fa-project-diagram"></i><span>プロジェクト</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/logout" data-method="post"> <i class="fas fa-sign-out-alt "></i><span>ログアウト</span></a></li>
                 </ul>
@@ -133,13 +133,13 @@
     <div class="row mb-3">
         <div class="col-lg-4">
             <div class="card mb-3">
-                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="" width="160" height="160" />
+                <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" width="160" height="160" src="<%= "/user_images/#{@user.image_name}" %>">
                     <div class="mb-3"><input class="btn btn-primary btn-sm" type="button" value="プロフィール画像の変更" style="background-color: rgb(4,143,131);"></div>
                 </div>
             </div>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="text-primary font-weight-bold m-0">所属しているプロジェクト</h6>
+                    <h6 class="font-weight-bold m-0" style="color: rgb(4,143,131);">所属しているプロジェクト</h6>
                 </div>
                 <div class="card-body">
                 <h4 class="small font-weight-bold">testter<span class="float-right">20%</span></h4>
@@ -211,7 +211,7 @@
                         <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                    <div class="form-group"><label for="signature"><strong>自己紹介文</strong><br /></label><textarea class="form-control" rows="4" name="signature"></textarea></div>
+                                    <div class="form-group"><label for="signature"><strong>自己紹介文</strong><br /></label><input class="form-control" type="textarea"name="prf" value="<%= @user.profile %>"></div>
                                     <% if @user.id == @current_user.id %>
                                     <div class="form-group"><input class="btn btn-primary btn-sm" type="submit" style="background-color: rgb(4,143,131);"　 value="変更を保存する"></div>
                                 <% end %>

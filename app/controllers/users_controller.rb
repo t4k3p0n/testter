@@ -38,6 +38,7 @@ def change
   @user = User.find_by(id: params[:id])
   @user.name = params[:name1]
   @user.email = params[:email2]
+  @user.profile = params[:prf]
   if @user.save
     redirect_to("/users/#{@user.id}")
   else
@@ -61,6 +62,7 @@ end
       name: params[:name],
       email: params[:email],
       password: params[:password],
+      image_name: "default_user.jpg"
     )
     if @user.save
       session[:user_id] = @user.id
