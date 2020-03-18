@@ -12,7 +12,11 @@ class UsersController < ApplicationController
     @posts = @current_user.posts.all
 
   end
-  
+
+  def view
+    @user = User.find_by(id: params[:id])
+    @posts = @user.posts.all
+  end
  
 
   def show

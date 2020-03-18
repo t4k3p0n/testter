@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   post "users/:id/photoch" => "users#photoch"
   get 'users/show'
   get 'users/new' 
-  get 'users/index'
+  get 'users/index' => "users#index"
+  get 'users/view'
   get "users/:id" => "users#show"
-  
+  get 'users/:id/view' => "users#view"
   get 'home/top'
   get 'home/login'
   get 'home/signup'
