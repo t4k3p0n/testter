@@ -137,7 +137,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 text-nowrap">
-                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label></label><button class="btn btn-primary btn-sm border-white" type="submit" style="background-color: rgb(4,143,131);">新規作成</button></div>
+                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label></label><button class="btn btn-primary btn-sm border-white" type="submit" data-toggle="modal" data-target="#project" style="background-color: rgb(4,143,131);">新規作成</button></div>
                     </div>
                     <div class="col-md-6">
                         <div class="text-md-right dataTables_filter" id="dataTable_filter"><label></label></div>
@@ -150,23 +150,27 @@
                                 <th>プロジェクト名</th>
                                 <th>作成者</th>
                                 <th>作成日</th>
+                                <th>説明</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Testter</td>
+                                <td><a href="/groups/project">Testter</a></td>
                                 <td>たけぽん</td>
                                 <td>2020/03/18</td>
+                                <td>説明</td>
                             </tr>
                             <tr>
                                 <td>Testter</td>
                                 <td>たけぽん</td>
                                 <td>2020/03/18</td>
+                                <td>説明</td>
                             </tr>
                             <tr>
                                 <td>Testter</td>
                                 <td>たけぽん</td>
                                 <td>2020/03/18</td>
+                                <td>説明</td>
                             </tr>
                             <tr></tr>
                             <tr></tr>
@@ -196,6 +200,33 @@
                 </div>
             </div>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+        <div class="modal fade" id="project" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+        <%= form_tag("/groups/#{@user.id}/create") do %>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">プロジェクトの作成</h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    
+                                    <div class="col">
+                                    <div class="form-group"><label for="username"><strong>プロジェクト名</strong><br></label><input class="form-control" type="text" placeholder="ユーザーネーム" name="name" value="<%= @group.name %>"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit" style="background-color: rgb(4,143,131);">作成</button></div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+        </div>
     <%= javascript_include_tag 'users/jquery.min.js' %>
     <%= javascript_include_tag 'users/bootstrap.min.js' %>
     <%= javascript_include_tag 'users/chart.min.js' %>

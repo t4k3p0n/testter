@@ -30,6 +30,8 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'ionicons-rails'
 gem 'bcrypt'
+gem 'erb2haml'
+gem 'haml-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

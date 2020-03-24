@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   post "users/:id/update" => "users#update"
   post "users/:id/change" => "users#change"
   post "users/:id/photoch" => "users#photoch"
+  post "groups/:id/create" => "groups#create"
   get 'users/show'
   get 'users/new' 
+  get 'users/member'
   get 'users/index' => "users#index"
-  get 'users/view'
   get "users/:id" => "users#show"
-  get 'users/:id/view' => "users#view"
+  get 'groups/project'
+  get "groups/:id/view" => "groups#view"
   get 'home/top'
   get 'home/login'
   get 'home/signup'

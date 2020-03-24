@@ -20,7 +20,7 @@
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>ダッシュボード</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/users/<%= current_user.id %>"><i class="fas fa-user"></i><span>プロフィール</span></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/<%= current_user.id %>/view"><i class="fas fa-project-diagram"></i><span>プロジェクト</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/groups/<%= current_user.id %>/view"><i class="fas fa-project-diagram"></i><span>プロジェクト</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="/logout" data-method="post"> <i class="fas fa-sign-out-alt "></i><span>ログアウト</span></a></li>
                 </ul>
                 

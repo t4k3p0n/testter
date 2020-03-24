@@ -1,0 +1,291 @@
+<% current_user = User.find_by(id: session[:user_id]) %>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Dashboard - Brand</title>
+    <%= stylesheet_link_tag "users/bootstrap.min", :media => "all" %>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion  p-0" style="background-color: rgb(4,143,131);">
+            <div class="container-fluid d-flex flex-column p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+                    <div class="sidebar-brand-icon rotate-n-15"><i class="fas fa-cube"></i></div>
+                    <div class="sidebar-brand-text mx-3"><span>Testter</span></div>
+                </a>
+                <hr class="sidebar-divider my-0">
+                <ul class="nav navbar-nav text-light" id="accordionSidebar">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/users/index"><i class="fas fa-tachometer-alt"></i><span>トップ</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/member"><i class="fas fa-project-diagram"></i><span>メンバー</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="/users/index"> <i class="fas fa-sign-out-alt "></i><span>マイページに戻る</span></a></li>
+                </ul>
+                
+            </div>
+        </nav>
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+            <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
+            <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button" style="color: rgb(9,174,135);"><i class="fas fa-bars"></i></button>
+                <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" /><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button>
+                        <div class="input-group-append"></div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav flex-nowrap ml-auto">
+                    <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-search"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right p-3 animated--grow-in" role="menu" aria-labelledby="searchDropdown">
+                            <form class="form-inline mr-auto navbar-search w-100">
+                                <div class="input-group"><input class="bg-light form-control border-0 small" type="text" placeholder="全ての検索" />
+                                    <div class="input-group-append"><button class="btn btn-primary py-0" type="button" style="background-color: rgb(4,143,131);"><i class="fas fa-search"></i></button></div>
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="badge badge-danger badge-counter">3+</span><i class="fas fa-bell fa-fw"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                role="menu">
+                                <h6 class="dropdown-header" style="background-color: rgb(4,143,131);">通知センター</h6>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-primary icon-circle"><i class="fas fa-file-alt text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                        <p>プロジェクトにて課題が残っています！</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-success icon-circle"><i class="fas fa-donate text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                    <p>プロジェクトにて課題が残っています！</p>
+                                </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="mr-3">
+                                        <div class="bg-warning icon-circle"><i class="fas fa-exclamation-triangle text-white"></i></div>
+                                    </div>
+                                    <div><span class="small text-gray-500">2020/03/16</span>
+                                    <p>プロジェクトにて課題が残っています！</p>
+                                </div>
+                                </a></div>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown no-arrow mx-1" role="presentation">
+                        <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fas fa-envelope fa-fw"></i><span class="badge badge-danger badge-counter">7</span></a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in"
+                                role="menu">
+                                <h6 class="dropdown-header"style="background-color: rgb(4,143,131);">最近のメッセージ</h6>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-success status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate"><span>こんにちは</span></div>
+                                        <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-warning status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a>
+                                <a class="d-flex align-items-center dropdown-item" href="#">
+                                    <div class="dropdown-list-image mr-3"><img class="rounded-circle" src="" />
+                                        <div class="bg-success status-indicator"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                    <div class="text-truncate"><span>こんにちは</span></div>
+                                    <p class="small text-gray-500 mb-0">testくん</p>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="shadow dropdown-list dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown"></div>
+                    </li>
+                    <div class="d-none d-sm-block topbar-divider"></div>
+                    <li class="nav-item dropdown no-arrow" role="presentation">
+                    <div class="nav-item dropdown no-arrow"><a class="nav-link" href="/users/<%= current_user.id %>"><%= current_user.name %></a>
+            </div>
+            </li>
+            </ul>
+            </div>
+        </nav>
+            <div class="container-fluid">
+                <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-dark mb-0">プロジェクト名</h3><a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#" data-toggle="modal" data-target="#testModal" style="background-color: rgb(4,143,131);"><i class="fas fa-download fa-sm text-white-50"></i>タスクの作成</a></div>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class=" font-weight-bold m-0" style="color: rgb(9,174,135);">プロジェクトのタスク</h6>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h6 class="mb-0">タスクのステータス</h6><h6 class="mb-0"><strong>ミーティング</strong></h6><span class="text-xs">10:30 AM</span><h6 class="mb-0">（プロフィール画像）担当者名</h6></div>
+                                            
+                                        <div class="col-auto"><button class="btn border rounded-circle" type="button"data-toggle="modal" data-target="#com"><i class="fas fa-comment"></i></button><button class="btn border rounded-circle" type="button" data-toggle="modal" data-target="#edit"><i class="fas fa-pen"></i></button></div>
+                                    </div>
+                                    <div class="card-header">
+                                        <h6 class=" m-0">コメント</h6><span class="text-xs">10:30 AM</span><h6 class="mb-0">（プロフィール画像）担当者名</h6>
+                                        
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row align-items-center no-gutters">
+                                        <div class="col mr-2">
+                                            <h6 class="mb-0"><strong>ミーティング</strong></h6><span class="text-xs">10:30 AM</span></div>
+                                            <div class="col-auto"><button class="btn border rounded-circle" type="button"><i class="fas fa-comment"></i></button><button class="btn border rounded-circle" type="button"><i class="fas fa-pen"></i></button></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 offset-xl-0">
+                        <div class="row">
+                            <div class="col-lg-5 col-xl-12">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header d-flex justify-content-between align-items-center">
+                                        <h6 class="font-weight-bold m-0"style="color: rgb(4,143,131);">グラフ</h6>
+                                       
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="chart-area"><canvas data-bs-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false},&quot;title&quot;:{}}}"></canvas></div>
+                                        <div
+                                            class="text-center small mt-4"><span class="mr-2"><i class="fas fa-circle text-primary"></i>&nbsp;login</span><span class="mr-2"><i class="fas fa-circle text-success"></i>&nbsp;Twitterl</span><span class="mr-2"><i class="fas fa-circle text-info"></i>&nbsp;testter</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="com" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">タスクへのコメント</h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="username"><strong>担当者名</strong><br></label><select class="form-control"><optgroup label="担当者名を入力してください"><option value="12" selected="">担当者名</option><option value="13">担当者名</option><option value="14">担当者名</option></optgroup></select></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group"><label for="email"><strong>タスクのステータス</strong><br></label><select class="form-control"><optgroup label="タスク"><option value="12" selected="">ステータス</option><option value="13">done</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="first_name"><strong>タスクの入力</strong><br></label><textarea class="form-control" rows="4" name="signature"></textarea></div>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">投稿</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="testModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">タスク投稿画面</h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="username"><strong>担当者名</strong><br></label><select class="form-control"><optgroup label="担当者名を入力してください"><option value="12" selected="">担当者名</option><option value="13">担当者名</option><option value="14">担当者名</option></optgroup></select></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group"><label for="email"><strong>タスクのステータス</strong><br></label><select class="form-control"><optgroup label="タスク"><option value="12" selected="">ステータス</option><option value="13">done</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="first_name"><strong>タスクの入力</strong><br></label><textarea class="form-control" rows="4" name="signature"></textarea></div>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">投稿</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">タスクを編集する</h4></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="username"><strong>担当者名</strong><br></label><select class="form-control"><optgroup label="担当者名を入力してください"><option value="12" selected="">担当者名</option><option value="13">担当者名</option><option value="14">担当者名</option></optgroup></select></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group"><label for="email"><strong>タスクのステータス</strong><br></label><select class="form-control"><optgroup label="タスク"><option value="12" selected="">ステータス</option><option value="13">done</option><option value="14">This is item 3</option></optgroup></select></div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col">
+                                        <div class="form-group"><label for="first_name"><strong>タスクの入力</strong><br></label><textarea class="form-control" rows="4" name="signature"></textarea></div>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
+                        <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">投稿</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <%= javascript_include_tag 'users/jquery.min.js' %>
+    <%= javascript_include_tag 'users/bootstrap.min.js' %>
+    <%= javascript_include_tag 'users/chart.min.js' %>
+    <%= javascript_include_tag 'users/bs-init.js' %>
+    <%= javascript_include_tag 'users/easing.js' %>
+    <%= javascript_include_tag 'users/theme.js' %>
+</body>
+
+</html>
