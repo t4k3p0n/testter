@@ -1,0 +1,72 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, shrink-to-fit=no", :name => "viewport"}/
+    %title 新規登録
+    = stylesheet_link_tag "top/Dark-NavBar", :media => "all"
+    = stylesheet_link_tag "top/Footer-Basic", :media => "all"
+    = stylesheet_link_tag "top/Features-Clean", :media => "all"
+    = stylesheet_link_tag "top/Highlight-Phone", :media => "all"
+    = stylesheet_link_tag "signup/Registration-Form-with", :media => "all"
+  %body
+    %div
+      %nav.navbar.navbar-light.navbar-expand-md.sticky-top.navigation-clean-button{:style => "height: 70px;background-color: rgb(4,143,131);color: #ffffff;"}
+        .container-fluid
+          %a.navbar-brand{:href => "/"}
+            %i.fas.fa-cube>
+             Testter
+          %button.navbar-toggler{"data-target" => "#navcol-1", "data-toggle" => "collapse"}
+            %span.sr-only Toggle navigation
+            %span.navbar-toggler-icon{:style => "color: rgb(255,255,255);"}
+          #navcol-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.ml-auto
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation", :style => "background-color: rgb(4,143,131);"}
+                %a.nav-link{:href => "/users/new", :style => "color:#ffffff;"}
+                  %i.fas.fa-user-plus>
+                   新規登録
+              %li.nav-item{:role => "presentation", :style => "background-color: rgb(4,143,131);"}
+                %a.nav-link{:href => "/users/login_form", :style => "color:#ffffff;"}
+                  %i.fas.fa-sign-in-alt>
+                   ログイン
+    .features-clean
+    .register-photo
+      .form-container
+        = form_tag("/users/create") do
+          %h2.text-center{:style => "color: rgb(0,153,135);"}
+            %strong アカウントの作成
+          .form-group
+            %input.form-control{:name => "email", :placeholder => "Email", :type => "email", :value => "#{@user.email}"}/
+          .form-group
+            %input.form-control{:name => "name", :placeholder => "Name", :type => "name", :value => "#{@user.name}"}/
+          .form-group
+            %input.form-control{:name => "password", :placeholder => "Password", :type => "password"}/
+            @user.password "&gt;
+          .form-group
+            %button.btn.btn-primary.btn-block{:style => "background-color: rgb(4,143,131);color: #ffffff;", :type => "submit"} 作成
+          = link_to 'ゲストとして体験する', guest_path, method: :post ,class: "fas fa-sign-in-alt"
+          - if @error_message
+            .form-error
+              = @error_message
+          %a.already{:href => "/users/login_form"} アカウントお持ちの場合はこちら
+    .footer-basic
+      %footer
+        .social
+          %a{:href => "https://github.com/t4k3p0n"}
+            %i.fab.fa-github
+          %a{:href => "https://twitter.com/takepon_it"}
+            %i.fab.fa-twitter
+        %ul.list-inline
+          %li.list-inline-item
+            %a{:href => "https://portfolio-d0936.firebaseapp.com/"} 開発者のサイト
+        %p.copyright Copyright takepon © 2020
+    %div
+    = javascript_include_tag 'jquery.min.js'
+    = javascript_include_tag 'Features.js'
+    = javascript_include_tag 'MUSA_form-wizard.js'
+    = javascript_include_tag 'bootstrap.min.js'
+    = javascript_include_tag 'script.min.js'

@@ -1,0 +1,79 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, shrink-to-fit=no", :name => "viewport"}/
+    %title Testter
+    = stylesheet_link_tag "top/Dark-NavBar", :media => "all"
+    = stylesheet_link_tag "top/Footer-Basic", :media => "all"
+    = stylesheet_link_tag "top/Features-Clean", :media => "all"
+    = stylesheet_link_tag "top/Highlight-Phone", :media => "all"
+  %body
+    %div
+      %nav.navbar.navbar-light.navbar-expand-md.sticky-top.navigation-clean-button{:style => "height: 70px;background-color: rgb(4,143,131);color: #ffffff;"}
+        .container-fluid
+          %a.navbar-brand{:href => "/"}
+            %i.fas.fa-cube>
+             Testter
+          %button.navbar-toggler{"data-target" => "#navcol-1", "data-toggle" => "collapse"}
+            %span.sr-only Toggle navigation
+            %span.navbar-toggler-icon{:style => "color: rgb(255,255,255);"}
+          #navcol-1.collapse.navbar-collapse
+            %ul.nav.navbar-nav.ml-auto
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation"}
+              %li.nav-item{:role => "presentation", :style => "background-color: rgb(4,143,131);"}
+                %a.nav-link{:href => "/users/new", :style => "color:#ffffff;"}
+                  %i.fas.fa-user-plus>
+                   新規登録
+              %li.nav-item{:role => "presentation", :style => "background-color: rgb(4,143,131);"}
+                %a.nav-link{:href => "/users/login_form", :style => "color:#ffffff;"}
+                  %i.fas.fa-sign-in-alt>
+                   ログイン
+    .highlight-phone{:style => "height: 327px;"}
+      .container
+        .row
+          .col-md-8
+            .intro
+              %h2 Testter
+              %p
+                Todoアプリです
+                %br/
+              %a.btn.btn-primary{:href => "/users/new", :role => "button", :style => "background-color: rgb(4,143,131);"} 早速試して見る
+          .col-sm-4
+            .d-none.d-md-block.iphone-mockup
+              = image_tag "iphone.svg", alt: "Rails icon", id: "assets", class: "device"
+              .screen
+    .features-clean
+      .container
+        .intro{:style => "color: rgb(48,50,51);"}
+          %h2.text-center{:style => "color: rgb(9,174,135);"} 機能
+        .row.features
+          .col-sm-6.col-lg-4.item
+          .col-sm-6.col-lg-4.offset-xl-0.item
+            %i.fa.fa-list-alt.icon{:style => "color: rgb(9,174,135);"}
+            %h3.name{:style => "color: rgb(77,77,77);"} プロジェクトの管理
+            %p.description{:style => "color: rgb(77,77,77);"}
+              タスクの進捗の投稿、完了、削除等の機能が使えます。
+              %br/
+              %br/
+          .col-sm-6.col-lg-4.item
+    .footer-basic
+      %footer
+        .social
+          %a{:href => "https://github.com/t4k3p0n"}
+            %i.fab.fa-github
+          %a{:href => "https://twitter.com/takepon_it"}
+            %i.fab.fa-twitter
+        %ul.list-inline
+          %li.list-inline-item
+            %a{:href => "https://portfolio-d0936.firebaseapp.com/"} 開発者のサイト
+        %p.copyright Copyright takepon © 2020
+    %div
+    = javascript_include_tag 'jquery.min.js'
+    = javascript_include_tag 'Features.js'
+    = javascript_include_tag 'MUSA_form-wizard.js'
+    = javascript_include_tag 'bootstrap.min.js'
+    = javascript_include_tag 'script.min.js'
