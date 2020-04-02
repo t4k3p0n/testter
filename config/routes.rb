@@ -12,13 +12,9 @@ Rails.application.routes.draw do
   post "users/:id/photoch" => "users#photoch"
   get 'users/show'
   get 'users/new' 
+  get 'users/member'
   get 'users/index' => "users#index"
-  get 'users/view'
   get "users/:id" => "users#show"
-  get 'users/:id/view' => "users#view"
-  get 'home/top'
-  get 'home/login'
-  get 'home/signup'
   root 'users#top'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

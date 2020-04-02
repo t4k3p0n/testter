@@ -1,0 +1,116 @@
+!!!
+%html
+  %body
+    - current_user = User.find_by(id: session[:user_id])
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, shrink-to-fit=no", :name => "viewport"}/
+    = stylesheet_link_tag "users/bootstrap.min", :media => "all"
+    #wrapper
+      %nav.navbar.navbar-dark.align-items-start.sidebar.sidebar-dark.accordion.p-0{:style => "background-color: rgb(4,143,131);"}
+        .container-fluid.d-flex.flex-column.p-0
+          %a.navbar-brand.d-flex.justify-content-center.align-items-center.sidebar-brand.m-0{:href => "#"}
+            .sidebar-brand-icon.rotate-n-15
+              %i.fas.fa-cube
+            .sidebar-brand-text.mx-3
+              %span Testter
+          %hr.sidebar-divider.my-0/
+          %ul#accordionSidebar.nav.navbar-nav.text-light
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link{:href => "/users/index"}
+                %i.fas.fa-tachometer-alt
+                %span ダッシュボード
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link.active{:href => "/users/#{current_user.id}"}
+                %i.fas.fa-user
+                %span プロフィール
+            %li.nav-item{:role => "presentation"}
+              %a.nav-link{"data-method" => "post", :href => "/logout"}
+                %i.fas.fa-sign-out-alt
+                %span ログアウト
+      #content-wrapper.d-flex.flex-column
+        .container-fluid
+          %h3.text-dark.mb-4
+            = @user.name
+            さんのプロフィール
+          .row.mb-3
+            .col-lg-4
+              .card.mb-3
+                = form_tag("/users/#{@user.id}/photoch", {multipart: true}) do
+                  .card-body.text-center.shadow
+                    %img.rounded-circle.mb-3.mt-4{:height => "160", :src => "/user_images/#{@user.image_name}", :width => "160"}/
+                    - if @user.id == @current_user.id
+                      .mb-3
+                        %input{:name => "image", :type => "file"}/
+                      %input.btn.btn-primary.btn-sm{:style => "background-color: rgb(4,143,131);", :type => "submit", :value => "保存"}/
+              .card.shadow.mb-4
+            .col-lg-8
+              .row.mb-3.d-none
+                .col
+                  .card.text-white.bg-primary.shadow
+                    .card-body
+                      .row.mb-2
+                        .col
+                        .col-auto
+                          %i.fas.fa-rocket.fa-2x
+                .col
+                  .card.text-white.bg-success.shadow
+                    .card-body
+                      .row.mb-2
+                        .col
+                        .col-auto
+                          %i.fas.fa-rocket.fa-2x
+              .row
+                .col
+                  .card.shadow.mb-3
+                    .card-header.py-3
+                      %p.m-0.font-weight-bold{:style => "color: rgb(4,143,131);"} ユーザー情報
+                    .card-body
+                      = form_tag("/users/#{@user.id}/change", {multipart: true}) do
+                        .form-row
+                          .col
+                            .form-group
+                              %label{:for => "username"}
+                                %strong ユーザーネーム
+                                %br/
+                              %input.form-control{:name => "name1", :placeholder => "ユーザーネーム", :type => "text", :value => "#{@user.name}"}/
+                          .col
+                            .form-group
+                              %label{:for => "email"}
+                                %strong メールアドレス
+                                %br/
+                              %input.form-control{:name => "email2", :placeholder => "メールアドレス", :type => "email", :value => "#{@user.email}"}/
+                    .card-body
+                      .row
+                        .col-md-6
+                          .form-group
+                            %label{:for => "signature"}
+                              %strong 自己紹介文
+                              %br/
+                            %input.form-control{:name => "prf", :type => "textarea", :value => "#{@user.profile}"}/
+                          - if @user.id == @current_user.id
+                            .form-group
+                              %input.btn.btn-primary.btn-sm{:style => "background-color: rgb(4,143,131);", :type => "submit", :value => "変更を保存する"}/
+                  .card.shadow.mb-3
+                    .card-header.py-3
+                      .card.shadow.mb-3
+                        .card-header.py-3
+                          %h6.font-weight-bold.m-0{:style => "color: rgb(4,143,131);"}
+                            = @user.name
+                            さんのタスク
+                        %ul.list-group.list-group-flush
+                          - @posts.each do |post|
+                            %li.list-group-item
+                              .row.align-items-center.no-gutters
+                                .col.mr-2
+                                  %h6.mb-0= post.status
+                                  %h5.mb-0= post.content
+                                  %span.text-xs= post.updated_at.strftime("%Y-%m-%d %H:%M")
+                                .col-auto
+    %a.border.rounded.d-inline.scroll-to-top{:href => "#page-top"}
+      %i.fas.fa-angle-up
+    = javascript_include_tag 'users/jquery.min.js'
+    = javascript_include_tag 'users/bootstrap.min.js'
+    = javascript_include_tag 'users/chart.min.js'
+    = javascript_include_tag 'users/bs-init.js'
+    = javascript_include_tag 'users/easing.js'
+    = javascript_include_tag 'users/theme.js'

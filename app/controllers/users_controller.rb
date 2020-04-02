@@ -32,6 +32,7 @@ class UsersController < ApplicationController
     return Post.where(user_id: self.id)
   end
 
+
   def update
     @post = Post.find_by(id: params[:id])
     @post.update(status:"完了")
