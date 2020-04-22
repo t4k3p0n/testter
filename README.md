@@ -1,24 +1,14 @@
-# README
+# 実装機能一覧
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* アカウント新規登録
 
-Things you may want to cover:
+* ログイン
 
-* Ruby version
+* ゲストアカウントでのログイン
 
-* System dependencies
+* Todoの投稿
 
-* Configuration
+* タスク完了、削除機能
 
-* Database creation
+* プロフィール機能（プロフィール画像、自己紹介文等）
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
